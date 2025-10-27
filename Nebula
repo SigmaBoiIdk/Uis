@@ -6,7 +6,28 @@ local Tick = tick()
 repeat wait() until game:IsLoaded(); 
 
 local Tick = tick()
- 
+
+-- Custom Fonts
+do 
+	-- 
+	writefile("smallest_pixel.ttf", game:HttpGet("https://github.com/f1nobe7650/other/raw/main/ProggyTiny.ttf"))
+	-- 
+	local smallest_pixel = {
+		name = "SmallestPixel7",
+		faces = {
+			{
+				name = "Regular",
+				weight = 400,
+				style = "normal",
+				assetId = getcustomasset("smallest_pixel.ttf")
+			}
+		}
+	}
+
+	writefile("menu_font.font", game:GetService("HttpService"):JSONEncode(smallest_pixel))
+
+	getgenv().menu_font = Font.new(getcustomasset("menu_font.font"), Enum.FontWeight.Regular)
+end; 
 
 do -- Library
 	Library = {
